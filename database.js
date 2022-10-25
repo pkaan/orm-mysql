@@ -5,7 +5,6 @@ let pass = password.password;
 
 let pass = "yourpassword"
 const Sequelize = require('sequelize');
-const { timeStamp } = require('console');
 
 // CONNECT TO THE DATABASE
 const connection = new Sequelize('bookings_db', 'root', `${pass}`, {
