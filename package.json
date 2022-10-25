@@ -2,7 +2,7 @@
   "name": "orm-test",
   "version": "1.0.0",
   "description": "Testing ORM",
-  "main": "server.js",
+  "main": "database.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
