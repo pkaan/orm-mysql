@@ -7,7 +7,7 @@ let pass = "yourpassword"
 const Sequelize = require('sequelize');
 const { timeStamp } = require('console');
 
-// CONNECTING TO THE DATABASE
+// CONNECT TO THE DATABASE
 const connection = new Sequelize('bookings_db', 'root', `${pass}`, {
     host: 'localhost', 
     dialect: 'mysql'
@@ -16,28 +16,13 @@ const connection = new Sequelize('bookings_db', 'root', `${pass}`, {
 connection
     .authenticate()
     .then(() => {console.log('Connection to database established succesfully.');
-
 })
 .catch(err => {
     console.error('Unable to connect to the database:', err);
 })
  
-/*
-// DEFINE A MODEL = DEFINE A TABLE
-USING UUID
-const User = 
-    connection.define('User', {
-        user_id: {
-            type: Sequelize.UUID,
-            primaryKey: true,
-            defaultValue: Sequelize.UUIDV4
-        },
-        name: Sequelize.STRING,
-        destination: Sequelize.STRING
-})
-*/
 
-// DEFINE A MODEL = DEFINE A TABLE
+// CREATE TABLE users
 const User = 
     connection.define('User', {
         user_id: {
@@ -49,6 +34,15 @@ const User =
             destination: Sequelize.STRING,
             //timestamps: false
 })
+
+/*
+UUID as primaryKey
+        user_id: {
+            type: Sequelize.UUID,
+            primaryKey: true,
+            defaultValue: Sequelize.UUIDV4
+        }
+*/
 
 // INSERT INTO users (name, destination) VALUES (....)
 console.log("QUERY 1: INSERT INTO ..");
@@ -72,8 +66,8 @@ connection.sync()
 
 
 // FIND ALL, SELECT * FROM ..
-connection.sync().then(() => User.findAll()).
-then(user => {
+connection.sync().then(() => User.findAll())
+.then(user => {
     console.log("\nQUERY 2: SELECT * FROM ..");
     console.log(JSON.stringify(user));
 }).catch(err => {
@@ -85,8 +79,8 @@ connection.sync().then(() => User.findAll({
     where: {
         destination: 'New York'
     }
-})).
-then(user => {
+}))
+.then(user => {
     console.log("\nQUERY 3: SELECT * FROM .. WHERE ");
     console.log(JSON.stringify(user));
 }).catch(err => {
