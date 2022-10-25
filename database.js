@@ -34,15 +34,6 @@ const User =
             //timestamps: false
 })
 
-/*
-UUID as primaryKey
-        user_id: {
-            type: Sequelize.UUID,
-            primaryKey: true,
-            defaultValue: Sequelize.UUIDV4
-        }
-*/
-
 // INSERT INTO users (name, destination) VALUES (....)
 console.log("QUERY 1: INSERT INTO ..");
 connection.sync()
@@ -63,6 +54,14 @@ connection.sync()
     console.error('Error inserting values into table:', err);
 });
 
+/*
+Using UUID as a primaryKey
+        user_id: {
+            type: Sequelize.UUID,
+            primaryKey: true,
+            defaultValue: Sequelize.UUIDV4
+        }
+*/
 
 // FIND ALL, SELECT * FROM ..
 connection.sync().then(() => User.findAll())
@@ -81,6 +80,16 @@ connection.sync().then(() => User.findAll({
 }))
 .then(user => {
     console.log("\nQUERY 3: SELECT * FROM .. WHERE ");
+    console.log(JSON.stringify(user));
+}).catch(err => {
+    console.error('Error getting values from the table:', err);
+})
+
+
+// FIND BY PRIMARY KEY 
+connection.sync().then(() => User.findByPk(1))
+.then(user => {
+    console.log("\nQUERY 4: FIND BY PRIMARY KEY");
     console.log(JSON.stringify(user));
 }).catch(err => {
     console.error('Error getting values from the table:', err);
