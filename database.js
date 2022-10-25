@@ -29,9 +29,9 @@ const User =
             primaryKey: true,
             autoIncrement: true
         },
-            name: Sequelize.STRING,
-            destination: Sequelize.STRING,
-            //timestamps: false
+        name: Sequelize.STRING,
+        destination: Sequelize.STRING,
+        //timestamps: false
 })
 
 // INSERT INTO users (name, destination) VALUES (....)
@@ -84,7 +84,6 @@ connection.sync().then(() => User.findAll({
 }).catch(err => {
     console.error('Error getting values from the table:', err);
 })
-
 
 // FIND BY PRIMARY KEY 
 connection.sync().then(() => User.findByPk(1))
