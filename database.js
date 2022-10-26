@@ -4,7 +4,11 @@ let pass = password.password;
 */
 let pass = "yourpassword";
 
-//Install mysql database driver npm install mysql2
+/*Install sequelize
+npm install sequelize 
+Install MYSQL database driver
+npm install mysql2
+*/
 const Sequelize = require("sequelize");
 
 // CONFIGURE CONNECTION TO THE DATABASE
