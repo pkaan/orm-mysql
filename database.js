@@ -142,8 +142,8 @@ insertValues(data);
 // get all data
 findall();
 
-// get data that fulfills a condition destination = new york
+// get data that fulfills the condition: 'destination '= 'new york'
 findByCondition("new york");
 
-// get a single entry that has primary key value '1'
+// get a single entry that has a primary key value: '1'
 findByPrimaryKey(1);
