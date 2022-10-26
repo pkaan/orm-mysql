@@ -115,19 +115,19 @@ let findByPrimaryKey = function (id) {
 
 const data = [
   {
-    name: "Jason",
+    name: "User1",
     destination: "Las Palmas",
   },
   {
-    name: "Peetu",
+    name: "User2",
     destination: "Birmingham",
   },
   {
-    name: "Maliha",
+    name: "User3",
     destination: "New York",
   },
   {
-    name: "Amita",
+    name: "User4",
     destination: "Paris",
   },
 ];
